@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Climbing XP</title>
+</head>
+<body>
+    <h1>CLIMBING XP</h1>
+    <p id="strt">Mój dziennik wspinaczkowy</p>
+    <form>
+        <label for="rName">Nazwa drogi</label>
+        <input type="text" id="rName" name="rName" required>
+
+        <fieldset>
+            <legend>Skala Trudności</legend>
+            <div class="radio-option">
+                <input type="radio" id="rFRA" name="rSt" value="fr" checked>
+                <label for="rFRA">Francuska</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="rKUR" name="rSt" value="kurtyka">
+                <label for="rKUR">Kurtyki</label>
+            </div>
+        </fieldset>
+
+        <label for="rPrice">Wycena drogi</label>
+        <select id="rPrice" name="rPrice">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4a</option>
+            <option>4b</option>
+            <option>4c</option>
+            <option>5a</option>
+            <option>5b</option>
+            <option>5c</option>
+            <option>6a</option>
+            <option>6a+</option>
+            <option>6b</option>
+            <option>6b+</option>
+            <option>6c</option>
+            <option>6c+</option>
+            <option>7a</option>
+            <option>7a+</option>
+            <option>7b</option>
+            <option>7b+</option>
+            <option>7c</option>
+            <option>7c+</option>
+            <option>8a</option>
+            <option>8a+</option>
+            <option>8b</option>
+            <option>8b+</option>
+            <option>8c</option>
+            <option>8c+</option>
+            <option>9a</option>
+            <option>9a+</option>
+            <option>9b</option>
+            <option>9b+</option>
+            <option>9c</option>
+        </select>
+
+        <fieldset>
+            <legend>Sposób przejścia</legend>
+            <div class="radio-option">
+                <input type="radio" id="rOS" name="rStyle" value="OS" checked>
+                <label for="rOS">OS - Onsight</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="rF" name="rStyle" value="Flash">
+                <label for="rF">Flash</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="rRP" name="rStyle" value="RP">
+                <label for="rRP">RP - Redpoint</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="rTR" name="rStyle" value="TR">
+                <label for="rTR">TR - Na Wędkę</label>
+            </div>
+        </fieldset>
+        <button type="submit">Dodaj przejście</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

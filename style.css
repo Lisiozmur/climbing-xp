@@ -1,0 +1,76 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+html {
+    background-color: #111111;
+    color: white;
+    font-family: 'Inter', sans-serif;
+}
+
+input, select, button {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    color: white;
+}
+
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+button {
+    background-color: #FF4500;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+form {
+    background-color: #262626;
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+h1 {
+    color: #FF4500;
+    text-align: center;
+}
+
+select {
+    appearance: none;
+}
+
+#strt {
+    text-align: center;
+}
+
+#rName, #rPrice {
+    background-color: #444444;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    border: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.radio-option {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin: 0;
+}
