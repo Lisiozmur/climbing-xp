@@ -81,11 +81,15 @@ select {
         visibility: visible;
         border: 2px solid white;
     }
+
+    fieldset legend {
+        margin-bottom: 10px;
+    }
 #strt {
     text-align: center;
 }
 
-#rName, #rPrice {
+#rName, #rPrice{
     background-color: #444444;
     padding: 10px;
     border-radius: 10px;
@@ -100,4 +104,35 @@ select {
     align-items: center;
     gap: 5px;
     margin: 0;
+}
+
+.scale-selector{
+    display:flex;
+    gap: 10px;
+}
+
+.scale-option{
+    flex:1;
+    padding:12px;
+    text-align: center;
+    background-color: #333333;
+    border:2px solid #555555;
+    border-radius: 8px;
+    Cursor: pointer;
+}
+
+.scale-option input{
+    position: absolute;
+    opacity:0;
+}
+
+.scale-option:has(input:checked){
+    border-color: #FF4500;
+    color: #FF4500;
+    background-color: #3A2A23;
+}
+
+.scale-option:has(input:focus-visible){
+    outline: 2px solid #FF4500;
+    outline-offset: 3px;
 }
