@@ -32,23 +32,27 @@
         <fieldset>
             <legend>Sposób przejścia</legend>
             <div class="radio-option">
-                <input type="radio" id="rOS" name="rStyle" value="OS" checked>
+                <input type="radio" id="rOS" class="sposob" name="rStyle" value="OS" checked>
                 <label for="rOS">OS - Onsight</label>
             </div>
             <div class="radio-option">
-                <input type="radio" id="rF" name="rStyle" value="Flash">
+                <input type="radio" id="rF" class="sposob" name="rStyle" value="Flash">
                 <label for="rF">Flash</label>
             </div>
             <div class="radio-option">
-                <input type="radio" id="rRP" name="rStyle" value="RP">
+                <input type="radio" id="rRP" class="sposob" name="rStyle" value="RP">
                 <label for="rRP">RP - Redpoint</label>
             </div>
             <div class="radio-option">
-                <input type="radio" id="rTR" name="rStyle" value="TR">
+                <input type="radio" id="rKK" class="sposob" name="rStyle" value="KK">
+                <label for="rKK">Klasyczny</label>
+            </div>
+            <div class="radio-option">
+                <input type="radio" id="rTR" class="sposob" name="rStyle" value="TR">
                 <label for="rTR">TR - Na Wędkę</label>
             </div>
         </fieldset>
-        <button type="submit">Dodaj przejście</button>
+        <button id="dPi" type="submit">Dodaj przejście</button>
     </form>
     <script src="script.js"></script>
 </body>
