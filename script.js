@@ -39,6 +39,8 @@ const mnoznikStylu = {
 }
 
 console.log(mnoznikStylu.OS);
+console.log(punktyFrancuskie["6b"]);
+console.log(punktyKurtyki["VI.3"]);
 
 function ustawStopnie(stopnie){
     listaTrudnosci.innerHTML = "";
@@ -61,25 +63,43 @@ skalaKurtyki.addEventListener("change",function(){
     }
 });
 
-    ustawStopnie(stopnieFrancuskie);
+ustawStopnie(stopnieFrancuskie);
 
-    formularz.addEventListener("submit",function(event){
-        event.preventDefault();
-       
-        if(!nazwaDrogi.value.trim()){
-            console.log("podaj nazwę drogi");
-            return;
-        }
-        const wybranyStyl = document.querySelector('input[name="rStyle"]:checked');
+formularz.addEventListener("submit",function(event){
+    event.preventDefault();
 
-        if(!wybranyStyl){
-            console.log("Wybierz styl przejścia")
-            return;
-        }
+    if(!nazwaDrogi.value.trim()){
+        console.log("podaj nazwę drogi");
+        return;
+    }
+    const wybranyStyl = document.querySelector('input[name="rStyle"]:checked');
 
-        const mnoznik = mnoznikStylu[wybranyStyl.value];
-        console.log(nazwaDrogi.value);
-        console.log(listaTrudnosci.value);
-        console.log(wybranyStyl.value);
-        console.log(mnoznik);
-    });
+    if(!wybranyStyl){
+        console.log("Wybierz styl przejścia")
+        return;
+    }
+
+    let punktyBazowe;
+
+    if(skalaFrancuska.checked){
+        punktyBazowe = punktyFrancuskie[listaTrudnosci.value];
+    }
+    else{
+        punktyBazowe = punktyKurtyki[listaTrudnosci.value];
+    }
+
+    const mnoznik = mnoznikStylu[wybranyStyl.value];
+    const zdobytePunkty = punktyBazowe*mnoznik;
+
+    if(!Number.isFinite(zdobytePunkty)){
+        console.log("BŁĄD XP");
+        return;
+    }
+
+    console.log(nazwaDrogi.value);
+    console.log(listaTrudnosci.value);
+    console.log(wybranyStyl.value);
+    console.log(mnoznik);
+    console.log(punktyBazowe);
+    console.log(zdobytePunkty);
+});
