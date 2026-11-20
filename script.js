@@ -5,6 +5,11 @@ const listaTrudnosci = document.getElementById("rPrice");
 const nazwaDrogi = document.getElementById("rName");
 const formularz = document.getElementById("formula");
 
+const wynikXP = document.getElementById("wynikXP");
+const wynikNazwa = document.getElementById("wynikNazwa");
+const wynikPunkty = document.getElementById("wynikPunkty");
+const wynikSzczegoly = document.getElementById("wynikSzczegoly");
+
 const stopnieFrancuskie = [
     "1","2","3","4a","4b","4c","5a", 
     "5b", "5c", "6a", "6a+", "6b","6b+",
@@ -95,6 +100,11 @@ formularz.addEventListener("submit",function(event){
         console.log("BŁĄD XP");
         return;
     }
+
+
+    wynikNazwa.textContent = nazwaDrogi.value.trim();
+    wynikPunkty.textContent = `+${zdobytePunkty} XP`;
+    wynikSzczegoly.textContent = `${listaTrudnosci.value} • ${wybranyStyl.value}`;
 
     console.log(nazwaDrogi.value);
     console.log(listaTrudnosci.value);
