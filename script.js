@@ -10,6 +10,8 @@ const wynikNazwa = document.getElementById("wynikNazwa");
 const wynikPunkty = document.getElementById("wynikPunkty");
 const wynikSzczegoly = document.getElementById("wynikSzczegoly");
 
+const listaHistorii = document.getElementById("listaHistorii")
+
 const stopnieFrancuskie = [
     "1","2","3","4a","4b","4c","5a", 
     "5b", "5c", "6a", "6a+", "6b","6b+",
@@ -17,6 +19,7 @@ const stopnieFrancuskie = [
     "7c","7c+","8a","8a+","8b","8b+",
     "8c","8c+","9a"
 ];
+
 const stopnieKurtyki = [
     "I","II","III","IV","IV+","V-","V",
     "V+","VI-","VI","VI+","VI.1","VI.1+",
@@ -40,12 +43,8 @@ const punktyKurtyki = {
 };
 
 const mnoznikStylu = {
-    OS: 1.5, F: 1.3,RP: 1,KK: 0.75,TR: 0.5
+    OS: 1.5, FR: 1.3, RP: 1,KK: 0.75,TR: 0.5
 }
-
-console.log(mnoznikStylu.OS);
-console.log(punktyFrancuskie["6b"]);
-console.log(punktyKurtyki["VI.3"]);
 
 function ustawStopnie(stopnie){
     listaTrudnosci.innerHTML = "";
@@ -101,15 +100,29 @@ formularz.addEventListener("submit",function(event){
         return;
     }
 
+    const nowaDroga = document.createElement("li");
+
+    const nazwaHistorii = document.createElement("span");
+    const punktyHistorii = document.createElement("span");
+    const szczegolyHistorii = document.createElement("span");
+    
+    nazwaHistorii.textContent = nazwaDrogi.value.trim();
+    punktyHistorii.textContent = `+${zdobytePunkty} XP`;
+    szczegolyHistorii.textContent = `${listaTrudnosci.value} • ${wybranyStyl.value}`;
+    
+    nowaDroga.classList.add("karta-drogi");
+    nazwaHistorii.classList.add("historia-nazwa");
+    punktyHistorii.classList.add("historia-punkty");
+    szczegolyHistorii.classList.add("historia-szczegoly");
+    
+    nowaDroga.appendChild(nazwaHistorii);
+    nowaDroga.appendChild(punktyHistorii);
+    nowaDroga.appendChild(szczegolyHistorii);
+    
+    listaHistorii.appendChild(nowaDroga);
 
     wynikNazwa.textContent = nazwaDrogi.value.trim();
     wynikPunkty.textContent = `+${zdobytePunkty} XP`;
     wynikSzczegoly.textContent = `${listaTrudnosci.value} • ${wybranyStyl.value}`;
-
-    console.log(nazwaDrogi.value);
-    console.log(listaTrudnosci.value);
-    console.log(wybranyStyl.value);
-    console.log(mnoznik);
-    console.log(punktyBazowe);
-    console.log(zdobytePunkty);
+    wynikXP.classList.remove("ukryty");
 });

@@ -144,8 +144,13 @@ select {
 }
 
 .wynik-xp {
-    margin-top: 20px;
-    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin: 10px auto 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
     background-color: #262626;
     border: 2px solid #FF4500;
     border-radius: 10px;
@@ -157,4 +162,60 @@ select {
 
 .wynik-xp:empty {
     display: none;
+}
+
+.ukryty {
+    display: none;
+}
+
+.historia {
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    margin: 30px auto;
+}
+
+.historia h2 {
+    margin-bottom: 15px;
+    color: #FFFFFF;
+}
+
+#listaHistorii {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.karta-drogi {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 12px;
+    align-items: center;
+
+    padding: 15px;
+    background-color: #262626;
+    border-radius: 10px;
+    border: 1px solid #444444;
+}
+
+.historia-nazwa {
+    color: #FFFFFF;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.historia-punkty {
+    color: #FF4500;
+    font-weight: bold;
+    text-align: right;
+    white-space: nowrap;
+}
+
+.historia-szczegoly {
+    grid-column: 1 / -1;
+    color: #AAAAAA;
+    font-size: 14px;
 }
