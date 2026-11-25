@@ -46,6 +46,13 @@ const mnoznikStylu = {
     OS: 1.5, FR: 1.3, RP: 1,KK: 0.75,TR: 0.5
 }
 
+const historiaPrzejsc =
+    JSON.parse(localStorage.getItem("historiaPrzejsc")) || [];
+
+historiaPrzejsc.forEach(function(przejscie){
+    dodajKarteHistorii(przejscie);
+});
+
 function ustawStopnie(stopnie){
     listaTrudnosci.innerHTML = "";
     for(const sT of stopnie){
@@ -100,29 +107,45 @@ formularz.addEventListener("submit",function(event){
         return;
     }
 
+    const nowePrzejscie = {
+        nazwa: nazwaDrogi.value.trim(),
+        trudnosc: listaTrudnosci.value,
+        styl: wybranyStyl.value,
+        xp: zdobytePunkty
+    };
+  
+    historiaPrzejsc.push(nowePrzejscie);
+    localStorage.setItem("historiaPrzejsc", JSON.stringify(historiaPrzejsc));
+
+    dodajKarteHistorii(nowePrzejscie);
+
+    wynikNazwa.textContent = nazwaDrogi.value.trim();
+    wynikPunkty.textContent = `+${zdobytePunkty} XP`;
+    wynikSzczegoly.textContent = `${listaTrudnosci.value} • ${wybranyStyl.value}`;
+    
+    wynikXP.classList.remove("ukryty");
+});
+
+
+function dodajKarteHistorii(przejscie) {
     const nowaDroga = document.createElement("li");
 
     const nazwaHistorii = document.createElement("span");
     const punktyHistorii = document.createElement("span");
     const szczegolyHistorii = document.createElement("span");
-    
-    nazwaHistorii.textContent = nazwaDrogi.value.trim();
-    punktyHistorii.textContent = `+${zdobytePunkty} XP`;
-    szczegolyHistorii.textContent = `${listaTrudnosci.value} • ${wybranyStyl.value}`;
-    
+
+    nazwaHistorii.textContent = przejscie.nazwa;
+    punktyHistorii.textContent = `+${przejscie.xp} XP`;
+    szczegolyHistorii.textContent = `${przejscie.trudnosc} • ${przejscie.styl}`;
+
     nowaDroga.classList.add("karta-drogi");
     nazwaHistorii.classList.add("historia-nazwa");
     punktyHistorii.classList.add("historia-punkty");
     szczegolyHistorii.classList.add("historia-szczegoly");
-    
+
     nowaDroga.appendChild(nazwaHistorii);
     nowaDroga.appendChild(punktyHistorii);
     nowaDroga.appendChild(szczegolyHistorii);
-    
-    listaHistorii.appendChild(nowaDroga);
 
-    wynikNazwa.textContent = nazwaDrogi.value.trim();
-    wynikPunkty.textContent = `+${zdobytePunkty} XP`;
-    wynikSzczegoly.textContent = `${listaTrudnosci.value} • ${wybranyStyl.value}`;
-    wynikXP.classList.remove("ukryty");
-});
+    listaHistorii.appendChild(nowaDroga);
+}
